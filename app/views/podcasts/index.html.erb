@@ -1,0 +1,12 @@
+<% if @podcasts.blank? %>
+  <div class="null_content">
+    No podcasts published. Stay tuned!
+  </div>
+<% else %>
+  <% for podcast in @podcasts %>
+    <div class="podcast">
+      <h3 class="title"><%= h podcast.title %></h3>
+      <p class="summary"><%= h podcast.summary %></p>
+    </div>
+  <% end %>
+<% end %>
