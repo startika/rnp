@@ -13,3 +13,12 @@ Feature: Manage podcasts
     Then I should be on the podcasts list
     # And I should see flash "New podcast added"
     And I should see "Brand New Podcast"
+
+  Scenario: Remove podcast
+    Given I have exactly one podcast titled "Broken Podcast"
+    And I am on the podcasts list
+
+    When I click "Remove" link of podcast titled "Broken Podcast"
+
+    Then I should be on the podcasts list
+    And I should see no podcasts titled "Broken Podcast"

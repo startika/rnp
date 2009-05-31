@@ -7,6 +7,9 @@
     <div class="podcast">
       <h3 class="title"><%= h podcast.title %></h3>
       <p class="summary"><%= h podcast.summary %></p>
+      <div class="controls">
+        <%= link_to "Remove", podcast, :method => :delete %>
+      </div>
     </div>
   <% end %>
 <% end %>

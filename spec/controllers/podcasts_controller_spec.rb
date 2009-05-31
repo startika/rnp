@@ -90,3 +90,23 @@ describe PodcastsController, "handling POST /podcasts with invalid data" do
   end
 
 end
+
+describe PodcastsController, "handling DELETE /podcasts/:id" do
+
+  before do
+    @podcast = mock_model(Podcast)
+    @podcast.stub!(:id).and_return(42)
+    Podcast.stub!(:destroy).with("#{@podcast.id}")
+  end
+
+  it "should destroy podcast" do
+    Podcast.should_receive(:destroy).with("#{@podcast.id}")
+    delete :destroy, { :id => @podcast.id }
+  end
+
+  it "should redirect to /podcasts" do
+    delete :destroy, { :id => @podcast.id }
+    response.should redirect_to(:action => 'index')
+  end
+
+end

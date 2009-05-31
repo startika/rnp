@@ -17,4 +17,9 @@ class PodcastsController < ApplicationController
     end
   end
 
+  def destroy
+    Podcast.destroy(params[:id])
+    redirect_to podcasts_path
+  end
+
 end
