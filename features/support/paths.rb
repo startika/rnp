@@ -13,6 +13,8 @@ module NavigationHelpers
 
     when /the podcasts list/
       podcasts_path
+    when /the new podcast page/
+      new_podcast_path
 
     # Add more mappings here.
     # Here is a more fancy example:

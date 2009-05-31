@@ -4,4 +4,17 @@ class PodcastsController < ApplicationController
     @podcasts = Podcast.find(:all)
   end
 
+  def new
+    @podcast = Podcast.new
+  end
+
+  def create
+    @podcast = Podcast.new(params[:podcast])
+    if @podcast.save
+      redirect_to podcasts_path
+    else
+      render :action => 'new'
+    end
+  end
+
 end
