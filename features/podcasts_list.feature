@@ -18,3 +18,8 @@ Feature: Podcasts list
     Given I have no podcasts
     When I go to the podcasts list
     Then I should see nice podcasts list null screen
+
+  Scenario: Podcasts should be numbered
+    Given I have a couple of podcasts
+    When I go to the podcasts list
+    Then I should see podcasts are numbered

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090529211830) do
+ActiveRecord::Schema.define(:version => 20090531161237) do
 
   create_table "podcasts", :force => true do |t|
     t.string   "title"
@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20090529211830) do
     t.string   "asset_link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "number"
   end
 
 end
