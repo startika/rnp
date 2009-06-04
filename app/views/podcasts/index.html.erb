@@ -8,9 +8,10 @@
       <div class="number">#<%= h podcast.number %></div>
       <h3 class="title"><%= h podcast.title %></h3>
       <p class="summary"><%= h podcast.summary %></p>
-      <div class="controls">
-        <%= link_to "Remove", podcast, :method => :delete %>
-      </div>
+      <ul class="controls">
+        <li><%= link_to "Edit", edit_podcast_path(podcast) %></li>
+        <li><%= link_to "Remove", podcast, :method => :delete %></li>
+      </ul>
     </div>
   <% end %>
 <% end %>

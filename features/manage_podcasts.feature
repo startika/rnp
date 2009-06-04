@@ -22,3 +22,17 @@ Feature: Manage podcasts
 
     Then I should be on the podcasts list
     And I should see no podcasts titled "Broken Podcast"
+
+  Scenario: Edit podcast
+    Given I have exactly one podcast titled "Wrong Titled"
+    And I have no podcasts titled "Corrected Title"
+    And I am on the podcasts list
+
+    When I click "Edit" link of podcast titled "Wrong Titled"
+    And I fill in "Title" with "Corrected Title"
+    And I fill in "Summary" with "Corrected Summary"
+    And I press "Save"
+
+    Then I should be on the podcasts list
+    And I should see "Corrected Title"
+    And I should see "Corrected Summary"

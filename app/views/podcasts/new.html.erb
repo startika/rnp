@@ -1,24 +1,2 @@
-<%= error_messages_for :podcast %>
 
-<% form_for @podcast do |f| %>
-  <div>
-    <%= f.label :title, "Title" %>
-    <br/>
-    <%= f.text_field :title %>
-  </div>
-
-  <div>
-    <%= f.label :summary, "Summary" %>
-    <br/>
-    <%= f.text_area :summary %>
-  </div>
-
-  <div>
-    <%= f.label :asset_link, "Asset Link" %>
-    <%= f.text_field :asset_link %>
-  </div>
-
-  <div>
-    <%= f.submit "Create" %>
-  </div>
-<% end %>
+<%= render :partial => 'form', :locals => { :submit_label => "Create" } %>

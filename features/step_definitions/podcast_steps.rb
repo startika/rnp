@@ -11,6 +11,10 @@ Given /^I have exactly one podcast titled "([^\"]*)"$/ do |title|
   Factory(:podcast, :title => title)
 end
 
+Given /^I have no podcasts titled "([^\"]*)"$/ do |title|
+  Podcast.destroy_all ["title LIKE ?", "%#{title}%"]
+end
+
 Given /^I have a couple of podcasts$/ do
   5.times do |idx|
     Factory(:podcast, :title => "Podcast #{idx + 1}")
