@@ -16,6 +16,9 @@ module NavigationHelpers
     when /the new podcast page/
       new_podcast_path
 
+    when /the auth page/
+      auth_path
+
     # Add more mappings here.
     # Here is a more fancy example:
     #

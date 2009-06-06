@@ -1,0 +1,10 @@
+
+<% form_tag auth_path do %>
+  <div>
+    <%= label_tag 'access_token', "Access Token" %>
+    <%= password_field_tag 'access_token' %>
+  </div>
+  <div>
+    <%= submit_tag "Auth!" %>
+  </div>
+<% end %>

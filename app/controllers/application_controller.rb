@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+  def admin?
+    session[:access_token] == APP_CONFIG[:access_token]
+  end
+
 end

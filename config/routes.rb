@@ -35,6 +35,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :podcasts, :only => [ :index, :new, :create, :edit, :update, :destroy ]
 
+  map.auth 'auth', :controller => 'sessions', :action => 'new', :conditions => { :method => :get }
+  map.connect 'auth', :controller => 'sessions', :action => 'create', :conditions => { :method => :post }
+
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
