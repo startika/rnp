@@ -45,3 +45,26 @@ Spec::Runner.configure do |config|
   # 
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
 end
+
+class UseLayout
+  def initialize(expected)
+    @expected = "layouts/#{expected}"
+  end
+
+  def matches?(controller)
+    @actual = controller.layout
+    @actual == @expected
+  end
+
+  def failure_message_for_should
+    "use_layout expected #{@expected.inspect}, got #{@actual.inspect}"
+  end
+
+  def failure_message_for_should_not
+    "use_layout expected #{@expected.inspect} not to equal #{@actual.inspect}"
+  end
+end
+
+def use_layout(expected)
+  UseLayout.new(expected)
+end
