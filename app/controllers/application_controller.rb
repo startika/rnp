@@ -8,8 +8,16 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
+  helper_method :admin?
+
   def admin?
     session[:access_token] == APP_CONFIG[:access_token]
+  end
+
+  def restrict_access
+    unless admin?
+      render :file => "public/access_restricted.html", :status => 404
+    end
   end
 
 end

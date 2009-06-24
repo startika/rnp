@@ -15,6 +15,8 @@ module NavigationHelpers
       podcasts_path
     when /the new podcast page/
       new_podcast_path
+    when /edit page of podcast titled "([^\"]*)"/
+      edit_podcast_path(Podcast.find_by_title($1))
 
     when /the auth page/
       auth_path

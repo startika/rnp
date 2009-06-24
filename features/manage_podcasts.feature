@@ -3,6 +3,9 @@ Feature: Manage podcasts
   As a content manager
   I want to manage podcasts
 
+  Background:
+    Given I signed in admin session
+
   Scenario: Add new podcast
     When I go to the new podcast page
     And I fill in "Title" with "Brand New Podcast"

@@ -8,10 +8,12 @@
       <div class="number">#<%= h podcast.number %></div>
       <h3 class="title"><%= h podcast.title %></h3>
       <p class="summary"><%= h podcast.summary %></p>
-      <ul class="controls">
-        <li><%= link_to "Edit", edit_podcast_path(podcast) %></li>
-        <li><%= link_to "Remove", podcast, :method => :delete %></li>
-      </ul>
+      <% if admin? %>
+        <ul class="controls">
+          <li><%= link_to "Edit", edit_podcast_path(podcast) %></li>
+          <li><%= link_to "Remove", podcast, :method => :delete %></li>
+        </ul>
+      <% end %>
     </div>
   <% end %>
 <% end %>

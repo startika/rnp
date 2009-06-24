@@ -1,5 +1,7 @@
 class PodcastsController < ApplicationController
 
+  before_filter :restrict_access, :only => [ :new, :create, :edit, :update, :destroy ]
+
   def index
     @podcasts = Podcast.find(:all)
   end
