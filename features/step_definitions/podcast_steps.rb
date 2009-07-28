@@ -42,6 +42,10 @@ When /^I'm deleting podcast titled "([^\"]*)"$/ do |title|
   visit podcast_path(podcast), :delete, :id => podcast.id
 end
 
+When /^I click on the title of podcast titled "([^\"]*)"$/ do |title|
+  click_link_within ".podcast .title:contains(\"#{title}\")", title
+end
+
 Then /^I should see nice podcasts list null screen$/ do
   response.should have_tag('.null_content')
 end

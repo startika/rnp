@@ -13,6 +13,8 @@ module NavigationHelpers
 
     when /the podcasts list/
       podcasts_path
+    when /the landing page of podcast titled "([^\"]*)"/
+      podcast_path(Podcast.find_by_title($1))
     when /the new podcast page/
       new_podcast_path
     when /edit page of podcast titled "([^\"]*)"/

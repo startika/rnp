@@ -6,7 +6,7 @@
   <% for podcast in @podcasts %>
     <div class="podcast">
       <div class="number">#<%= h podcast.number %></div>
-      <h3 class="title"><%= h podcast.title %></h3>
+      <h3 class="title"><%= link_to h(podcast.title), podcast %></h3>
       <p class="summary"><%= h podcast.summary %></p>
       <% if admin? %>
         <ul class="controls">

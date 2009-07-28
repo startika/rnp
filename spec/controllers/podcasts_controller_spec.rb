@@ -30,6 +30,39 @@ describe PodcastsController do
 
   end
 
+  describe "handling GET /podcasts/:id" do
+
+    before(:all) do
+      @podcast_id = 42
+    end
+
+    before do
+      @podcast = mock_model(Podcast)
+      Podcast.stub!(:find).and_return(@podcast)
+    end
+
+    it "should be successful" do
+      get :show, :id => @podcast_id
+      response.should be_success
+    end
+
+    it "should render show template" do
+      get :show, :id => @podcast_id
+      response.should render_template('show')
+    end
+
+    it "should find podcast by given id" do
+      Podcast.should_receive(:find).with("#{@podcast_id}").and_return(@podcast)
+      get :show, :id => @podcast_id
+    end
+
+    it "should assign the found podcast for the view" do
+      get :show, :id => @podcast_id
+      assigns[:podcast].should == @podcast
+    end
+
+  end
+
   describe "handling GET /podcasts/new" do
 
     describe "as admin" do

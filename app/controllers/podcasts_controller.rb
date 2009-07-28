@@ -6,6 +6,10 @@ class PodcastsController < ApplicationController
     @podcasts = Podcast.find(:all)
   end
 
+  def show
+    @podcast = Podcast.find(params[:id])
+  end
+
   def new
     @podcast = Podcast.new
   end
