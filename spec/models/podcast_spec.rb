@@ -2,6 +2,8 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Podcast do
 
+  it { should have_many(:comments) }
+
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:asset_link) }
 
@@ -37,5 +39,5 @@ describe Podcast do
     end
 
   end
-  
+
 end

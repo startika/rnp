@@ -4,3 +4,21 @@
 <h3 class="title"><%= h @podcast.title %></h3>
 
 <p class="summary"><%= h @podcast.summary %></p>
+
+<div class="comments">
+
+  <% for comment in @podcast.comments %>
+    <div class="comment">
+      <% if comment.author_url.blank? %>
+        <h4 class="author_name"><%= h comment.author_name %><h4>
+      <% else %>
+        <h4 class="author_name">
+          <%= link_to h(comment.author_name), comment.author_url, :class => 'author_url' %>
+        </h4>
+      <% end %>
+
+      <p class="body"><%= h comment.body %></p>
+    </div>
+  <% end %>
+
+</div>
